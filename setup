@@ -1,0 +1,56 @@
+cat /proc/sys/vm/swappiness
+sudo nano /etc/sysctl.d/100-manjaro.conf
+vm.swappiness=10
+
+sudo pacman-mirrors -i -c China -m rank
+
+
+
+sudo pacman -Syy && sudo pacman -S archlinuxcn-keyring
+
+
+sudo pacman -S fcitx-sogoupinyin
+sudo pacman -S fcitx-im 
+sudo pacman -S fcitx-configtool
+
+安装中文rime输入法
+1.首先
+sudo pacman -S fcitx-rime
+sudo pacman -S fcitx-im # 全部安装
+sudo pacman -S fcitx-configtool # 图形化配置工具
+2.之后需要更改xprofile（没有则新建）
+sudo nano ~/.xprofile
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+3.重启就可以输入中文了。
+
+ 
+
+修改nano  ～/.profile，在最下方添加：
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+
+vim ~/.xprofile　　　　#在最后添加以下内容
+
+export LC_ALL=zh_CN.UTF-8
+
+export XIM=fcitx  
+
+export XIM_PROGRAM=fcitx
+
+export GTK_IM_MODULE=fcitx
+
+export QT_IM_MODULE=fcitx
+
+export XMODIFIERS="@im=fcitx"
+
+eval `dbus-launch --sh-syntax --exit-with-session`
+
+exec fcitx &
+
+
+pacman -S electronic-wechat 　　　　　　　　　　#微信
+
+pacman -S netease-cloud-music 　　　　　　　　 #网易云音乐
